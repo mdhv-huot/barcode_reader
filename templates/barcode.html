@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+<body style="font-size: 125%;">
+<div class="container" style="padding-top: 1rem">
+  <div class="jumbotron bg-primary text-white">
+      {% if building %}
+    <h3>{{ building_str }} Building</h3>
+
+      {% endif %}
+      <p>By scanning my McGill ID card, I confirm that:</p>
+      <ol>
+<li>I do not have COVID-19 symptoms and I do not live with anyone who has COVID-19 symptoms. </li>
+<li>I have read the University and Department regulations regarding research ramp-up activities and agree to abide by them. </li>
+</ol>
+</div>
+
+
+<form action="/result?building={{ building }}" method="post">
+
+    <div class="form-row">
+    <div class="form-group col-md-8 border">
+        <h3>Scan</h3>
+        <label for="id_number">Scan student ID card (or type 9 digit student ID number):</label>
+    <input type="number" class="form-control" name="id_number" pattern="\d{11}|\d{9}" title="Student ID card or 9 digit student ID number" autofocus id="id_number" required >
+    </div>
+    </div>
+</div>
+
+
+
+</body>
+{% endblock %}
